@@ -1,0 +1,299 @@
+{
+  // Define component
+  "defineComponent": {
+    "prefix": "def",
+    "body": [
+      "import { defineComponent } from 'vue';",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} = defineComponent({",
+      "  name: '${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}',",
+      "  props: {",
+      "    $0",
+      "  },",
+      "  render() {",
+      "    return <div>$2</div>;",
+      "  },",
+      "});",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}};",
+      ""
+    ],
+    "description": "defineComponent"
+  },
+
+  // Define functional component
+  "defineFunctionalComponent": {
+    "prefix": "deff",
+    "body": [
+      "import { defineComponent } from 'vue';",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} = defineComponent({",
+      "  functional: true,",
+      "  props: {",
+      "    $0",
+      "  },",
+      "  render(h, { props }) {",
+      "    return <div>$2</div>;",
+      "  },",
+      "});",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}};",
+      ""
+    ],
+    "description": "defineFunctionalComponent"
+  },
+
+  // Define async component
+  "defineAsyncComponent": {
+    "prefix": "defa",
+    "body": [
+      "import { defineAsyncComponent } from 'vue';",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} = defineAsyncComponent(${2:{",
+      "  loader: () => import('$3'),",
+      "  ${4:loadingComponent: ${5:LoadingComponent},}",
+      "  ${6:errorComponent: ${7:ErrorComponent},}",
+      "  ${8:delay: 200,",
+      "  timeout: 3000,}",
+      "}});",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}};"
+    ],
+    "description": "defineAsyncComponent"
+  },
+
+  // Props
+  "defineProps": {
+    "prefix": "props",
+    "body": [
+      "props: {",
+      "  /**",
+      "   * ${7:Description}",
+      "   */",
+      "  ${1:name}: {",
+      "    type: ${2:String}${3: as PropType<${4:string}>},",
+      "    ${3:required: ${4|true,false|},}",
+      "    ${5:default: ${6},}",
+      "  },$0",
+      "},"
+    ],
+    "description": "defineProps"
+  },
+
+  // Prop
+  "defineProp": {
+    "prefix": "prop",
+    "body": [
+      "/**",
+      " * ${9:Description}",
+      // " * @type {$2}",
+      " */",
+      "${1:name}: {",
+      "  type: ${2:String}${3: as PropType<${4:string}>},",
+      "  ${5:required: ${6|true,false|},}",
+      "  ${7:default: ${8:''},}",
+      "},$0"
+    ],
+    "description": "defineProp"
+  },
+
+  // Methods
+  "defineMethods": {
+    "prefix": "methods",
+    "body": [
+      "methods: {",
+      "  /**",
+      "   * ${4:Description}",
+      "   */",
+      "  ${1:name}(${2:params}) {",
+      "    $3",
+      "  },$0",
+      "},"
+    ],
+    "description": "defineMethods"
+  },
+
+  // Method
+  "defineMethod": {
+    "prefix": "method",
+    "body": [
+      "/**",
+      " * ${5:Description}",
+      " */",
+      "${1:async }${2:name}(${3:params}) {",
+      "  $4",
+      "},$0"
+    ],
+    "description": "defineMethod"
+  },
+
+  // Setup
+  "defineSetup": {
+    "prefix": "setup",
+    "body": [
+      "setup(${1:props}) {",
+      "  ${0}",
+      "  return {",
+      "    ${2:${TM_SELECTED_TEXT}}",
+      "  };",
+      "},"
+    ],
+    "description": "defineSetup"
+  },
+
+  // Ref
+  "defineRef": {
+    "prefix": "ref",
+    "body": [
+      "const ${1:refName} = ref($2);",
+      "const set${1/(.*)/${0:/pascalcase}/} = (${3:value}) => {",
+      "  ${1}.value = $3;$0",
+      "}"
+    ],
+    "description": "defineRef"
+  },
+
+  // Reactive
+  "defineReactive": {
+    "prefix": "reactive",
+    "body": ["const ${1:rctName} = reactive({", "  $0", "});"],
+    "description": "defineReactive"
+  },
+
+  // Render
+  "render": {
+    "prefix": "render",
+    "body": [
+      "render(${1:h${2:, { ${3:props} \\}}}) {",
+      "  return (",
+      "    <div>$0</div>",
+      "  )",
+      "},"
+    ],
+    "description": "render"
+  },
+
+  // Computed
+  "defineComputed": {
+    "prefix": "comp",
+    "body": ["const $1 = computed(() => ${2:${3}.value}$4);$0"],
+    "description": "defineComputed"
+  },
+
+  // Computed writable
+  "defineComputedWritable": {
+    "prefix": "compw",
+    "body": [
+      "  const $1 = computed({",
+      "    get: () => ${2:${3}.value},",
+      "    set: (${4:value}) => {",
+      "      $2 = $4$5;",
+      "    },",
+      "  });$0"
+    ],
+    "description": "defineComputedWritable"
+  },
+
+  // Watch
+  "defineWatch": {
+    "prefix": "watch",
+    "body": [
+      "watch(${1:() => ${2}}, (${3:value}, prev${3/(.*)/${0:/pascalcase}/}) => {",
+      "  $0",
+      "}${4:, {",
+      "  deep: true,",
+      "\\}})"
+    ],
+    "description": "defineWatch"
+  },
+
+  // WatchEffect
+  "defineWatchEffect": {
+    "prefix": "watche",
+    "body": [
+      "${1:const ${2:stopWatch} = }watchEffect(() => {",
+      "  $0",
+      "}${3:, {",
+      "  flush: 'pre'",
+      "\\}});",
+      ""
+    ],
+    "description": "defineWatchEffect"
+  },
+
+  // WatchPostEffect
+  "defineWatchPostEffect": {
+    "prefix": "watchpe",
+    "body": [
+      "${1:const ${2:stopWatch} = }watchPostEffect(() => {",
+      "  $0",
+      "});"
+    ],
+    "description": "defineWatchPostEffect"
+  },
+
+  // WatchSyncEffect
+  "defineWatchSyncEffect": {
+    "prefix": "watchse",
+    "body": [
+      "${1:const ${2:stopWatch} = }watchSyncEffect(() => {",
+      "  $0",
+      "});"
+    ],
+    "description": "defineWatchSyncEffect"
+  },
+
+  /**
+   * Life cycle
+   */
+  "onMounted": {
+    "prefix": "mount",
+    "body": ["onMounted(() => {", "  $0", "});"],
+    "description": "onMounted"
+  },
+  "onUpdated": {
+    "prefix": "update",
+    "body": ["onUpdated(() => {", "  $0", "});"],
+    "description": "onUpdated"
+  },
+  "onUnmounted": {
+    "prefix": "unmount",
+    "body": ["onUnmounted(() => {", "  $0", "});"],
+    "description": "onUnmounted"
+  },
+  "onBeforeMount": {
+    "prefix": "beforemount",
+    "body": ["onBeforeMount(() => {", "  $0", "});"],
+    "description": "onBeforeMount"
+  },
+  "onBeforeUpdate": {
+    "prefix": "beforeupdate",
+    "body": ["onBeforeUpdate(() => {", "  $0", "});"],
+    "description": "onBeforeUpdate"
+  },
+  "onBeforeUnmount": {
+    "prefix": "beforeunmount",
+    "body": ["onBeforeUnmount(() => {", "  $0", "});"],
+    "description": "onBeforeUnmount"
+  },
+  "onErrorCaptured": {
+    "prefix": "errorcapture",
+    "body": ["onErrorCaptured(() => {", "  $0", "});"],
+    "description": "onErrorCaptured"
+  },
+  "onActivated": {
+    "prefix": "activate",
+    "body": ["onActivated(() => {", "  $0", "});"],
+    "description": "onActivated"
+  },
+  "onDeactivated": {
+    "prefix": "deactivate",
+    "body": ["onDeactivated(() => {", "  $0", "});"],
+    "description": "onDeactivated"
+  },
+  "onServerPrefetch": {
+    "prefix": "serverprefetch",
+    "body": ["onServerPrefetch(() => {", "  $0", "});"],
+    "description": "onServerPrefetch"
+  }
+}

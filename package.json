@@ -1,0 +1,30 @@
+{
+  "name": "vue-jsx-snippets",
+  "displayName": "vue-jsx-snippets",
+  "description": "Vue jsx/tsx snippets",
+  "version": "0.0.1",
+  "publisher": "yandongxu",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yandongxu/vue-jsx-snippets.git"
+  },
+  "homepage": "https://github.com/yandongxu/vue-jsx-snippets/blob/master/README.md"
+}
