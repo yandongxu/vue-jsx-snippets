@@ -1,9 +1,12 @@
 {
   "name": "vue-jsx-snippets",
-  "displayName": "vue-jsx-snippets",
+  "displayName": "vue jsx snippets",
   "description": "Vue jsx/tsx snippets",
   "version": "0.0.1",
   "publisher": "yandongxu",
+  "scripts": {
+    "build": "vsce package"
+  },
   "engines": {
     "vscode": "^1.14.0"
   },
