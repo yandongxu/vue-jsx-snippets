@@ -17,11 +17,11 @@
     "snippets": [
       {
         "language": "javascriptreact",
-        "path": "./snippets/snippets.code-snippets"
+        "path": "./snippets/snippets.json"
       },
       {
         "language": "typescriptreact",
-        "path": "./snippets/snippets.code-snippets"
+        "path": "./snippets/snippets.json"
       }
     ]
   },
