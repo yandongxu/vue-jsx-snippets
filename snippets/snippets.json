@@ -71,7 +71,7 @@
       "   * ${7:Description}",
       "   */",
       "  ${1:name}: {",
-      "    type: ${2:String}${3: as PropType<${4:string}>},",
+      "    type: ${2:String},",
       "    ${3:required: ${4|true,false|},}",
       "    ${5:default: ${6},}",
       "  },$0",
@@ -89,9 +89,9 @@
       // " * @type {$2}",
       " */",
       "${1:name}: {",
-      "  type: ${2:String}${3: as PropType<${4:string}>},",
-      "  ${5:required: ${6|true,false|},}",
-      "  ${7:default: ${8:''},}",
+      "  type: ${2:String},",
+      "  ${3:required: ${4|true,false|},}",
+      "  ${5:default: ${6},}",
       "},$0"
     ],
     "description": "defineProp"
@@ -166,9 +166,9 @@
     "body": [
       "render(${1:h${2:, { ${3:props} \\}}}) {",
       "  return (",
-      "    <div>$0</div>",
+      "    <div>$4</div>",
       "  )",
-      "},"
+      "},$0"
     ],
     "description": "render"
   },
