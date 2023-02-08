@@ -2,7 +2,7 @@
   "name": "vue-jsx-snippets",
   "displayName": "vue jsx snippets",
   "description": "Vue jsx/tsx snippets",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "yandongxu",
   "scripts": {
     "build": "vsce package"
